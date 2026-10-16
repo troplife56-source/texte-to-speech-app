@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Application Voix Off</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Générateur de Voix Off</h1>
+        <p>Transforme ton texte en parole par blocs sécurisés</p>
+        
+        <label for="text-input">Ton texte complet :</label>
+        <textarea id="text-input" placeholder="Écris ton long texte ici..."></textarea>
+        
+        <label for="voice-select">Choix de la langue :</label>
+        <select id="voice-select"></select>
+        
+        <!-- Curseur Vitesse -->
+        <div class="control-group">
+            <label for="rate-slider">Vitesse : <span id="rate-value">1</span>x</label>
+            <input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="1">
+        </div>
+
+        <!-- Curseur Tonalité (Pitch) -->
+        <div class="control-group">
+            <label for="pitch-slider">Tonalité (Pitch) : <span id="pitch-value">1</span></label>
+            <input type="range" id="pitch-slider" min="0.5" max="1.5" step="0.1" value="1">
+        </div>
+
+        <!-- Curseur Volume Voix -->
+        <div class="control-group">
+            <label for="volume-slider">Volume Voix : <span id="volume-value">100</span>%</label>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+        </div>
+        
+        <div class="button-group">
+            <button id="split-btn" style="background-color: #8e44ad; color: white;">Découper en blocs</button>
+            <button id="stop-btn">Stop Voix</button>
+        </div>
+
+        <!-- Zone où les blocs indépendants vont s'afficher -->
+        <div id="blocks-container" class="blocks-container"></div>
+
+        <!-- Historique des textes -->
+        <div class="history-section">
+            <label>Historique des textes :</label>
+            <ul id="history-list"></ul>
+            <button id="clear-history-btn">Effacer l'historique</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
